@@ -1,39 +1,68 @@
 {
-  // Required
   "manifest_version": 2,
   "name": "Auto UOOC",
   "version": "1.0.0",
-
-  // Recommended
   // "default_locale": "en",
   "description": "自动刷慕课ヾ(･ω･`｡)",
   "icons": {
     "16": "icon/16.png",
     "48": "icon/48.png"
   },
-
-  // Pick one (or none)
-  // "browser_action": {},
   "page_action": {
     "default_icons": {
       "16": "icon/16.png",
       "24": "icon/24.png",
       "32": "icon/32.png",
       "48": "icon/48.png"
-    }
+    },
+    "default_popup": "popups/default_popup.html"
   },
 
+  "background": {
+    "scripts": ["webRequestMonitor.js", "background.js"]
+    // Recommended
+    // "persistent": false
+    // Optional
+    // "service_worker_script": ""
+  },
+
+  "content_scripts": [
+    {
+      // "all_frames": true,
+      "matches": ["*://www.uooc.net.cn/home"],
+      "js": ["inject-content.js"],
+      "run_at": "document_end"
+    },
+    {
+      // "all_frames": true,
+      "matches": ["*://www.uooc.net.cn/home/learn/index"],
+      "js": ["inject-content-learn.js"],
+      "css": ["styles/learn-progress.css"],
+      "run_at": "document_end"
+    }
+  ],
+
+  "web_accessible_resources": [
+    "script.js",
+    "scripts/learn.js"
+  ],
+  
+  "permissions": [
+    "tabs",
+    "declarativeContent",
+    "cookies",
+    "notifications",
+    "webRequest",
+    "webRequestBlocking",
+    "http://*.uooc.net.cn/*"
+  ]
+}
+  // Pick one (or none)
+  // "browser_action": {},
   // // Optional
   // "action": "",
   // "author": "",
   // "automation": "",
-  "background": {
-    "scripts": ["background.js"],
-    // Recommended
-    "persistent": false
-    // Optional
-    // "service_worker_script": ""
-  },
   // "chrome_settings_overrides": {},
   // "chrome_ui_overrides": {
   //   "bookmarks_ui": {
@@ -44,7 +73,6 @@
   // "chrome_url_overrides": {},
   // "commands": {},
   // "content_capabilities": "",
-  // "content_scripts": [{}],
   // "content_security_policy": "policyString",
   // "converted_from_user_script": "",
   // "current_locale": "",
@@ -78,10 +106,7 @@
   //   "chrome_style": true,
   //   "page": "options.html"
   // },
-  "permissions": [
-    "tabs",
-    "declarativeContent"
-  ]
+   // web请求 // 阻塞式web请求
   // "platforms": "",
   // "requirements": {},
   // "sandbox": [],
@@ -95,5 +120,3 @@
   // "tts_engine": {},
   // "update_url": "http://path/to/updateInfo.xml",
   // "version_name": "aString",
-  // "web_accessible_resources": []
-}

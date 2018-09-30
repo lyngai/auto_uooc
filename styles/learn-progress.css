@@ -1,0 +1,81 @@
+.progress-group {
+    float: left;
+    width: 470px;
+    width: calc(100% - 155px);
+    position: relative
+}
+
+.progress-group .progress-time,.progress-group .uooc-progress-bar {
+    width: 100%;
+    position: relative;
+    font-size: 12px;
+    color: #737373;
+    margin-bottom: 8px
+}
+
+.progress-group .progress-time .start-date {
+    float: left
+}
+
+.progress-group .progress-time .end-date {
+    float: right
+}
+
+.progress-group .week-count {
+    position: absolute;
+    top: -32px;
+    height: 22px;
+    line-height: 22px;
+    width: 60px;
+    font-size: 12px;
+    color: #666;
+    background-color: #e4e4e4;
+    margin-left: -60px;
+    text-align: center
+}
+
+.progress-group .week-count:after {
+    width: 0;
+    content: "";
+    display: block;
+    height: 0;
+    border-top: 10px solid #e4e4e4;
+    border-left: 10px solid transparent;
+    float: right;
+    position: relative;
+    top: 20px
+}
+
+.to-notes {
+    font-size: 12px;
+    color: #00a938
+}
+
+.uooc-progress-bar {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    -moz-user-select: none;
+    -ms-touch-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.uooc-progress-bar .uooc-progress-bar-top-item {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 4px;
+    background-color: #12a754
+}
+
+.uooc-progress-bar .uooc-progress-bar-bottom-item {
+    height: 4px;
+    background-color: #ddd
+}
+
+.orange .uooc-progress-bar .uooc-progress-bar-top-item {
+    background-color: #f60
+}
