@@ -38,12 +38,12 @@
       "matches": ["*://www.uooc.net.cn/home/learn/index"],
       "js": ["inject-content-learn.js"],
       "css": ["styles/learn-progress.css"],
-      "run_at": "document_end"
+      "run_at": "document_idle"
     }
   ],
 
   "web_accessible_resources": [
-    "script.js",
+    "scripts/center.js",
     "scripts/learn.js"
   ],
   

@@ -1,9 +1,9 @@
+var clearfix = document.createElement('div');
+clearfix.style.clear = "both";
+
 function initInject() {
   var courses = document.querySelectorAll('.course-item.course-learning:not(.ext-tracked)');
   if(courses.length === 0) { return; }
-  
-  var clearfix = document.createElement('div');
-  clearfix.style.clear = "both";
 
   var generateHackDom = function(cid) {
     var progress_group = document.createElement('div');
@@ -27,7 +27,7 @@ function initInject() {
     button.target = '_blank';
     button.innerText = "进入学习";
     button.setAttribute('course-id', cid);
-    button.onclick = function (e) {
+    button.onclick = function(e) {
       console.log('clicked');
     };
     // 配色container
@@ -88,24 +88,4 @@ function UOOC(cid) {
       }
     })
   };
-  this.getCourseLearn = function (cb) {
-    $.ajax({})
-  };
-  // this.
 }
-
-//http://www.uooc.net.cn/home/learn/getUnitLearn?
-//catalog_id=1536742370&
-//chapter_id=1760397466&
-//cid=1308638451&
-//hidemsg_=true&
-//section_id=1536742370&
-//show=
-//
-//http://www.uooc.net.cn/home/learn/getUnitLearn?
-//catalog_id=1003478650&
-//chapter_id=1210357522&
-//cid=54639857&
-//hidemsg_=true&
-//section_id=1003478650&
-//show=

@@ -31,10 +31,10 @@ chrome.webRequest.onBeforeRequest.addListener(details => {
 
 chrome.webRequest.onCompleted.addListener(details => {
   console.log('列表加载完毕', new Date());
-  setTimeout(() => {
-    chrome.extension.sendMessage({uoocEvent: "listLoaded"},
-      function(response) {
-        console.log('on response', response);
-    });
-  }, 1000);
+  // setTimeout(() => {
+  //   chrome.extension.sendMessage({uoocEvent: "listLoaded"},
+  //     function(response) {
+  //       console.log('on response', response);
+  //   });
+  // }, 1000);
 }, {urls: ["http://www.uooc.net.cn/home/course/list*"]}, []);
